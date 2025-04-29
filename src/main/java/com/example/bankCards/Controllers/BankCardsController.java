@@ -59,10 +59,6 @@ public class BankCardsController {
     public ResponseEntity<List<BankCard>> showAllCards()
     {
         var cards=bankCardService.getAllCards();
-//        for(var k:cards)
-//        {
-//            k.setCardNumber(k.maskedCardNumber());
-//        }
        return new ResponseEntity<>(cards,HttpStatus.OK);
     }
 
