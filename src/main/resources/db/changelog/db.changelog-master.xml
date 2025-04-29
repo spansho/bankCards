@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1745679392378-1" author="Egor (generated)">
+        <createTable tableName="app_user">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_app_user"/>
+            </column>
+            <column name="email" type="VARCHAR(400)"/>
+            <column name="role" type="VARCHAR(400)"/>
+            <column name="password" type="VARCHAR(400)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745679392378-2" author="Egor (generated)">
+        <createTable tableName="bank_card">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_bankcard"/>
+            </column>
+            <column name="card_number" type="VARCHAR(400)"/>
+            <column name="owner" type="VARCHAR(400)"/>
+            <column name="validity_period" type="DATETIME"/>
+            <column name="card_status" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="balance" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="daily_used" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="monthly_used" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="daily_limit" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="monthly_limit" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_daily_reset" type="DATE"/>
+            <column name="last_monthly_reset" type="DATE"/>
+            <column name="user_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745679392378-3" author="Egor (generated)">
+        <createTable tableName="transactionn">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_transactionn"/>
+            </column>
+            <column name="sender" type="VARCHAR(400)"/>
+            <column name="recipient" type="VARCHAR(400)"/>
+            <column name="amount" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(400)"/>
+            <column name="date_of_transation" type="DATETIME"/>
+            <column name="bank_card_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745679392378-4" author="Egor (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="bank_card"
+                                 constraintName="FK_BANKCARD_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+    </changeSet>
+    <changeSet id="1745679392378-5" author="Egor (generated)">
+        <addForeignKeyConstraint baseColumnNames="bank_card_id" baseTableName="transactionn"
+                                 constraintName="FK_TRANSACTIONN_ON_BANK_CARD" referencedColumnNames="id"
+                                 referencedTableName="bank_card"/>
+    </changeSet>
+</databaseChangeLog>
