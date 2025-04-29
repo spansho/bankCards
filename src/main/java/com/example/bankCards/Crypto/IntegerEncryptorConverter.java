@@ -16,7 +16,6 @@ public class IntegerEncryptorConverter implements AttributeConverter<Integer, St
         if (attribute == null) {
             return null;
         }
-        // Преобразуем число в строку и шифруем
         return encryptor.encrypt(String.valueOf(attribute));
     }
 
@@ -25,7 +24,6 @@ public class IntegerEncryptorConverter implements AttributeConverter<Integer, St
         if (dbData == null) {
             return null;
         }
-        // Расшифровываем и преобразуем обратно в число
         return Integer.valueOf(encryptor.decrypt(dbData));
     }
 }

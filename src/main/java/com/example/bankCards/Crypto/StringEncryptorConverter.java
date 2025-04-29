@@ -8,7 +8,7 @@ import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
- // Автоматически применяется ко всем полям нужного типа
+
  @Converter
  public class StringEncryptorConverter implements AttributeConverter<String, String> {
 

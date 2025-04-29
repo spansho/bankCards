@@ -14,7 +14,7 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
     default Optional<User> findByemail(String email) {
         return findAll().stream()
-                .filter(u -> u.getEmail().equals(email)) // Дешифровка через конвертер
+                .filter(u -> u.getEmail().equals(email))
                 .findFirst();
     }
 

@@ -23,7 +23,6 @@ public class JwtUserDetailsService implements UserDetailsService {
         User user = userRepository.findByemail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        //сюда потом методы получения добавить
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
                 user.getPassword(),

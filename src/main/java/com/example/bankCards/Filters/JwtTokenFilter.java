@@ -53,9 +53,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
         if (token != null) {
             String username = jwtTokenRepository.extractUsername(token);
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);  // Загружаем UserDetails
+            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-            if (jwtTokenRepository.isTokenValid(token, userDetails)) {  // Передаём реального userDetails
+            if (jwtTokenRepository.isTokenValid(token, userDetails)) {
                 Authentication auth = getAuthentication(token);
                 SecurityContextHolder.getContext().setAuthentication(auth);
                 System.out.println("Установлена аутентификация: " + auth);

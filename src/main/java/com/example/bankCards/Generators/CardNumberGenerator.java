@@ -16,19 +16,17 @@ public class CardNumberGenerator {
         String cardNumber;
         do {
             cardNumber = generateValidCardNumber();
-        } while (!generatedNumbers.add(cardNumber)); // Повторяем, пока не получим уникальный номер
+        } while (!generatedNumbers.add(cardNumber));
 
         return cardNumber;
     }
 
     private static String generateValidCardNumber() {
-        // Генерация 15 цифр (BIN + 14 случайных)
         StringBuilder sb = new StringBuilder(BIN);
         for (int i = 0; i < 14; i++) {
             sb.append(random.nextInt(10));
         }
 
-        // Вычисление 16-й контрольной цифры
         String partialNumber = sb.toString();
         int checkDigit = calculateLuhnCheckDigit(partialNumber);
         return partialNumber + checkDigit;

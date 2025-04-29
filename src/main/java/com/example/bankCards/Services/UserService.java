@@ -56,7 +56,6 @@ public class UserService {
         return userRepository.findAll();
     }
     public String authenticate(UserDto user) {
-        // Используем метод findUser ByEmail для проверки существования пользователя
         Optional<User> existingUser  = findUserByemail(user.getEmail());
         if (existingUser .isPresent()) {
             return jwtTokenRepository.generateToken(userDetailsService.loadUserByUsername(user.getEmail()));

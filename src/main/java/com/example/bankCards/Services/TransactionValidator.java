@@ -46,7 +46,6 @@ public class TransactionValidator {
     }
 
     public void checkTransactionLimits(BankCard card, int amount) {
-        // Проверка дневных/месячных лимитов
         if (card.getDailyUsed() + amount > card.getDailyLimit()) {
             throw new LimitExceededException("Daily limit exceeded");
         }

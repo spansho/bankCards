@@ -21,7 +21,6 @@ public class JwtTokenRepository {
     private final String secret="U2VjcmV0S2V5MTIzNDU2Nzg5MEFCQ0RFRkdISUpLTE1OT1BRUlNUVVZXWFla";
 
     public String generateToken(UserDetails user) {
-        // Получаем первую роль (без префикса ROLE_)
         String role = user.getAuthorities().stream()
                 .findFirst()
                 .map(GrantedAuthority::getAuthority)

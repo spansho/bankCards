@@ -66,7 +66,6 @@ public class TransactionService {
 
     public Transactionn withdrawMoney(BankCard card,TransactionDto dto) throws InsufficientFundsException, CardBlockedException, Exception {
 
-           //    hrow(() -> new CardNotFoundException(dto.getSender()));
 
         try {
             updateDateOfLimits(card,dto);
