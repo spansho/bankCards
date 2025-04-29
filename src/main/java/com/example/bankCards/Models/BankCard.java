@@ -39,26 +39,26 @@ public class BankCard {
 
     @Getter @Setter
     @Convert(converter = IntegerEncryptorConverter.class)
-    private int dailyUsed; // Использовано за день
+    private int dailyUsed; 
 
     @Getter @Setter
     @Convert(converter = IntegerEncryptorConverter.class)
-    private int monthlyUsed; // Использовано за месяц
+    private int monthlyUsed; 
 
     @Getter @Setter
     @Convert(converter = IntegerEncryptorConverter.class)
-    private int dailyLimit; // Дневной лимит
+    private int dailyLimit; 
 
     @Getter @Setter
     @Convert(converter = IntegerEncryptorConverter.class)
-    private int monthlyLimit; // Месячный лимит
+    private int monthlyLimit; 
 
     @Getter @Setter
-    private LocalDate lastDailyReset; // Дата последнего сброса дневного лимита
+    private LocalDate lastDailyReset;
 
     @Getter @Setter
 
-    private LocalDate lastMonthlyReset; // Дата последнего сброса месячного лимита
+    private LocalDate lastMonthlyReset; 
 
     @Getter @Setter
     @OneToMany(mappedBy = "bankCard", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -94,19 +94,18 @@ public class BankCard {
             lastDailyReset = today;
         }
 
-        // Сброс месячного лимита, если наступил новый месяц
         if (lastMonthlyReset == null || lastMonthlyReset.getMonth() != today.getMonth()) {
             monthlyUsed = 0;
             lastMonthlyReset = today;
         }
 
-        // Проверка лимитов
+  
         if (dailyUsed + amount > dailyLimit) {
-            return false; // Превышен дневной лимит
+            return false; 
         }
 
         if (monthlyUsed + amount > monthlyLimit) {
-            return false; // Превышен месячный лимит
+            return false; 
         }
 
         return true;
