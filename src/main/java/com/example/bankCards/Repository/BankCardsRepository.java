@@ -10,7 +10,7 @@ public interface BankCardsRepository extends JpaRepository<BankCard,Integer> {
 
     default Optional<BankCard> findBycardNumber(String CardNumber) {
         return findAll().stream()
-                .filter(u -> u.getCardNumber().equals(CardNumber)) // Дешифровка через конвертер
+                .filter(u -> u.getCardNumber().equals(CardNumber)) 
                 .findFirst();
     }
 
