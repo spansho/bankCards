@@ -47,7 +47,7 @@ public class SecurityConfig {
                                 "/webjars/**",
                                 "/error",
                                 "/error/**"
-                        ).permitAll() // Разрешаем без аутентификации
+                        ).permitAll() 
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
