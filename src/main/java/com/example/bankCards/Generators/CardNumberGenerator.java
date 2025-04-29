@@ -10,7 +10,7 @@ import java.util.Set;
 public class CardNumberGenerator {
     private static final Set<String> generatedNumbers = new HashSet<>();
     private static final Random random = new Random();
-    private static final String BIN = "4"; // Начинается с 4 (Visa)
+    private static final String BIN = "4"; 
 
     public static synchronized String generateUniqueValidCardNumber() {
         String cardNumber;
