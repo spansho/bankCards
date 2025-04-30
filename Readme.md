@@ -19,3 +19,6 @@ spring.datasource.url=jdbc:postgresql://postgres:5450/banksCards
 http://localhost:8081/
 Адресс для обращения на локальной машине
 http://localhost:8080/operations/createNewCard
+
+для просмотра всех методов с помощью swagger 
+нужно обратиться по ссылке [http://localhost:8080/swagge-ui/index.html
